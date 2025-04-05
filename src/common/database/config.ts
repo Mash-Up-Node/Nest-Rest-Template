@@ -19,22 +19,8 @@ export const typeormConfig: DataSourceOptions = {
   database: process.env.DB_NAME ?? 'mashup_node',
   synchronize: isDev,
   logging: isDev,
-  entities: [
-    join(
-      cwd(),
-      isDev ? 'src' : 'dist',
-      '**',
-      `*.entity.${isDev ? 'ts' : 'js'}`,
-    ),
-  ],
-  migrations: [
-    join(
-      cwd(),
-      isDev ? 'src' : 'dist',
-      'migrations',
-      `*.${isDev ? 'ts' : 'js'}`,
-    ),
-  ],
+  entities: [join(cwd(), 'dist', '**', `*.entity.js`)],
+  migrations: [join(cwd(), 'dist', 'migrations', '*.js')],
 };
 
 export const AppDataSourceConfig = new DataSource(typeormConfig);
