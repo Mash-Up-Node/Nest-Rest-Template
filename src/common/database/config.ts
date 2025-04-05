@@ -1,6 +1,4 @@
 import { config } from 'dotenv';
-import { join } from 'path';
-import { cwd } from 'process';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { getAppModeEnv } from '../utility/env';
 
@@ -19,22 +17,8 @@ export const typeormConfig: DataSourceOptions = {
   database: process.env.DB_NAME ?? 'mashup_node',
   synchronize: isDev,
   logging: isDev,
-  entities: [
-    join(
-      cwd(),
-      isDev ? 'src' : 'dist',
-      '**',
-      `*.entity.${isDev ? 'ts' : 'js'}`,
-    ),
-  ],
-  migrations: [
-    join(
-      cwd(),
-      isDev ? 'src' : 'dist',
-      'migrations',
-      `*.${isDev ? 'ts' : 'js'}`,
-    ),
-  ],
+  entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
+  migrations: [__dirname + '/../../migrations/*{.ts,.js}'],
 };
 
 export const AppDataSourceConfig = new DataSource(typeormConfig);
