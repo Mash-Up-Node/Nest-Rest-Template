@@ -22,6 +22,5 @@ export const typeormConfig: DataSourceOptions = {
   entities: [join(cwd(), 'dist', '**', `*.entity.js`)],
   migrations: [join(cwd(), 'dist', 'migrations', '*.js')],
 };
-console.log(typeormConfig);
 
 export const AppDataSourceConfig = new DataSource(typeormConfig);
