@@ -30,7 +30,7 @@ describe('AppController (e2e)', () => {
     expect(response.body).toEqual(
       expect.objectContaining({
         statusCode: 418,
-        errorCode: 'TEST_EXCEPTION',
+        errorCode: 'I_AM_A_TEAPOT',
         message: '테스트용 예외입니다. 노드팀 화이팅!',
         timestamp: expect.any(String),
       }),
