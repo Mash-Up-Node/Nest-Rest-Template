@@ -1,9 +1,3 @@
-# Important: This file contains all available configuration options.
-# Do not copy this entire file to your repository configuration.
-# Your repository configuration should only include options you wish to override from the defaults.
-#
-# Use this page: 'https://qodo-merge-docs.qodo.ai/ai_search/' to ask questions about the configuration options.
-
 [config]
 # models
 model="gpt-3.5-turbo"
