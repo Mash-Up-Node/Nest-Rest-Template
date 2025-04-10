@@ -18,3 +18,4 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.BADA_OPEN_AI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MODEL: gpt-3.5-turbo 
