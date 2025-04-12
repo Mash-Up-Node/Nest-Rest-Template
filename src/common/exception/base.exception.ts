@@ -11,5 +11,7 @@ export class BaseException extends HttpException {
       },
       status,
     )
+
+    Error.captureStackTrace(this, new.target)
   }
 }
