@@ -48,20 +48,15 @@ export class PaginationMetadata {
 /**
  * Base Pagination Response
  */
-export abstract class BasePaginationResponse<T = any | any[]> {
+export abstract class BasePaginationResponse<T> {
   @ApiProperty({
     type: PaginationMetadata,
   })
   metadata: PaginationMetadata;
 
-  data: T | T[] | unknown;
+  data: T[];
 
-  constructor(
-    page: number,
-    limit: number,
-    count: number,
-    data: T | T[] | unknown,
-  ) {
+  constructor(page: number, limit: number, count: number, data: T[]) {
     this.metadata = new PaginationMetadata(page, limit, count);
     this.data = data;
   }
