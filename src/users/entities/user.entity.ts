@@ -1,3 +1,4 @@
+import { BaseUserRole } from '@/common/enum/role.enum';
 import {
   Column,
   CreateDateColumn,
@@ -23,11 +24,11 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @Column()
-  isSuperuser: boolean;
-
-  @Column()
-  isStaff: boolean;
+  @Column({
+    type: 'enum',
+    enum: BaseUserRole,
+  })
+  role: keyof typeof BaseUserRole;
 
   @CreateDateColumn()
   createdAt: Date;
