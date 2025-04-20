@@ -1,7 +1,13 @@
-import { INestApplication, ValidationPipe } from '@nestjs/common';
+import {
+  ClassSerializerInterceptor,
+  INestApplication,
+  ValidationPipe,
+} from '@nestjs/common';
 import { CommonResponseInterceptor } from '@/common/interceptor';
+import { Reflector } from '@nestjs/core';
 
 export function nestConfig(app: INestApplication) {
+  const reflector = app.get<Reflector>(Reflector);
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
@@ -9,5 +15,8 @@ export function nestConfig(app: INestApplication) {
     }),
   );
 
-  app.useGlobalInterceptors(new CommonResponseInterceptor());
+  app.useGlobalInterceptors(
+    new CommonResponseInterceptor(),
+    new ClassSerializerInterceptor(reflector),
+  );
 }
