@@ -87,9 +87,15 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/$1"
+    }
   },
   "lint-staged": {
-    "*.ts": ["prettier --write", "eslint --fix"]
+    "*.ts": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }
