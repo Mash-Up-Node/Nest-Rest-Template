@@ -32,6 +32,14 @@ export class PaginationMetadata {
   @ApiProperty({
     type: Boolean,
   })
+  get hasPrev(): boolean {
+    return this._page > 1;
+  }
+
+  @Expose()
+  @ApiProperty({
+    type: Boolean,
+  })
   get hasNext(): boolean {
     return Boolean(this._nextPage);
   }
