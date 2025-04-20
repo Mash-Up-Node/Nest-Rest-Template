@@ -12,6 +12,7 @@ export class AuthSignUpDto {
 
   @ApiProperty({
     description: 'Email',
+    example: 'user@example.com',
   })
   @IsNotEmpty()
   @IsEmail()
@@ -19,6 +20,7 @@ export class AuthSignUpDto {
 
   @ApiProperty({
     description: 'Password',
+    example: 'password',
   })
   @IsNotEmpty()
   @IsString()
