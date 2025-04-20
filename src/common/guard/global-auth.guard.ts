@@ -5,10 +5,9 @@ import {
   Injectable,
   ForbiddenException,
 } from '@nestjs/common';
-import { Request } from 'express';
 import { Reflector } from '@nestjs/core';
-import { ROLES_PUBLIC } from '../decorator/public.decorator';
-import { ROLES_KEY } from '../decorator/roles.decorator';
+import { ROLES_PUBLIC } from '@/common/decorator/public.decorator';
+import { ROLES_KEY } from '@/common/decorator/roles.decorator';
 
 @Injectable()
 export class GlobalAuthGuard implements CanActivate {

@@ -1,6 +1,6 @@
 import { ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { GlobalAuthGuard } from './global-auth.guard';
+import { GlobalAuthGuard } from '@/common/guard/global-auth.guard';
 import { ROLES_PUBLIC } from '@/common/decorator/public.decorator';
 import { UserRole } from '@/users/entities/user.entity';
 
