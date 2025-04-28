@@ -7,14 +7,14 @@ import {
 } from 'typeorm';
 
 export enum UserRole {
-  SuperUser = 'SuperUser',
-  Staff = 'Staff',
-  User = 'User',
+  SUPERUSER = 'superuser',
+  STAFF = 'staff',
+  USER = 'user',
 }
 
 @Entity('users')
 export class User {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ length: 100 })
@@ -32,7 +32,7 @@ export class User {
   @Column({
     type: 'enum',
     enum: UserRole,
-    default: UserRole.User,
+    default: UserRole.USER,
   })
   role: UserRole;
 
