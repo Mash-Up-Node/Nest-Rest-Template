@@ -3,6 +3,7 @@ import { Reflector } from '@nestjs/core';
 import { GlobalAuthGuard } from '@/common/guard/global-auth.guard';
 import { ROLES_PUBLIC } from '@/common/decorator/public.decorator';
 import { UserRole } from '@/users/entities/user.entity';
+import { AuthMessage } from '../exception/error-message.enum';
 
 describe('GlobalAuthGuard', () => {
   let guard: GlobalAuthGuard;
@@ -40,7 +41,7 @@ describe('GlobalAuthGuard', () => {
     } as unknown as ExecutionContext;
 
     expect(() => guard.canActivate(mockContext)).toThrow(
-      'Authentication required',
+      AuthMessage.UNAUTHORIZED,
     );
   });
 
@@ -76,6 +77,6 @@ describe('GlobalAuthGuard', () => {
       }),
     } as unknown as ExecutionContext;
 
-    expect(() => guard.canActivate(mockContext)).toThrow('Access denied');
+    expect(() => guard.canActivate(mockContext)).toThrow(AuthMessage.FORBIDDEN);
   });
 });

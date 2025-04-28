@@ -7,3 +7,8 @@ export enum UserMessage {
 export enum AppMessage {
   TEST_EXCEPTION = '테스트용 예외입니다. 노드팀 화이팅!',
 }
+
+export enum AuthMessage {
+  FORBIDDEN = '접근 권한이 없습니다.',
+  UNAUTHORIZED = '인증되지 않은 사용자입니다.',
+}

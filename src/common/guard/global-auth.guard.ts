@@ -1,13 +1,12 @@
 import { User } from '@/users/entities/user.entity';
-import {
-  CanActivate,
-  ExecutionContext,
-  Injectable,
-  ForbiddenException,
-} from '@nestjs/common';
+import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { ROLES_PUBLIC } from '@/common/decorator/public.decorator';
 import { ROLES_KEY } from '@/common/decorator/roles.decorator';
+import {
+  ForbiddenException,
+  UnauthorizedException,
+} from '@/common/exception/auth.exception';
 
 @Injectable()
 export class GlobalAuthGuard implements CanActivate {
@@ -34,7 +33,7 @@ export class GlobalAuthGuard implements CanActivate {
     const user = request.user as User;
 
     if (!user) {
-      throw new ForbiddenException('Authentication required');
+      throw new UnauthorizedException();
     }
 
     // @Roles() 검사
@@ -42,6 +41,6 @@ export class GlobalAuthGuard implements CanActivate {
       return true;
     }
 
-    throw new ForbiddenException('Access denied');
+    throw new ForbiddenException();
   }
 }
