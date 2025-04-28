@@ -29,7 +29,7 @@ describe('GlobalAuthGuard', () => {
   });
 
   it('should deny access if user is not authenticated', () => {
-    jest.spyOn(reflector, 'getAllAndOverride').mockReturnValue([UserRole.User]);
+    jest.spyOn(reflector, 'getAllAndOverride').mockReturnValue([UserRole.USER]);
 
     const mockContext = {
       getHandler: jest.fn(),
@@ -45,7 +45,7 @@ describe('GlobalAuthGuard', () => {
   });
 
   it('should allow access if user has the required role', () => {
-    jest.spyOn(reflector, 'getAllAndOverride').mockReturnValue([UserRole.User]);
+    jest.spyOn(reflector, 'getAllAndOverride').mockReturnValue([UserRole.USER]);
 
     const mockContext = {
       getHandler: jest.fn(),
@@ -53,7 +53,7 @@ describe('GlobalAuthGuard', () => {
       switchToHttp: jest.fn().mockReturnValue({
         getRequest: jest
           .fn()
-          .mockReturnValue({ user: { role: UserRole.User } }),
+          .mockReturnValue({ user: { role: UserRole.USER } }),
       }),
     } as unknown as ExecutionContext;
 
@@ -64,7 +64,7 @@ describe('GlobalAuthGuard', () => {
   it('should deny access if user does not have the required role', () => {
     jest
       .spyOn(reflector, 'getAllAndOverride')
-      .mockReturnValue([UserRole.Staff]);
+      .mockReturnValue([UserRole.STAFF]);
 
     const mockContext = {
       getHandler: jest.fn(),
@@ -72,7 +72,7 @@ describe('GlobalAuthGuard', () => {
       switchToHttp: jest.fn().mockReturnValue({
         getRequest: jest
           .fn()
-          .mockReturnValue({ user: { role: UserRole.User } }),
+          .mockReturnValue({ user: { role: UserRole.USER } }),
       }),
     } as unknown as ExecutionContext;
 
