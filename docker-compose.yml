@@ -17,5 +17,22 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    restart: always
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: password
+      DB_NAME: mashup_node
+    ports:
+      - '3000:3000'
+    depends_on:
+      mysql:
+        condition: service_healthy
 volumes:
   db_persist:
