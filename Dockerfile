@@ -1,20 +1,26 @@
-# Node.js 20 버전 이미지 사용
-FROM node:22
+# 1단계: Build Stage
+FROM node:22 AS builder
 
-# 작업 디렉토리 설정
 WORKDIR /app
 
-# package.json과 yarn.lock 복사
 COPY package.json yarn.lock ./
-
-# yarn으로 의존성 설치
 RUN yarn install
 
-# 소스 코드 전체 복사
 COPY . .
+RUN yarn build:bundle
 
-# 환경 변수 포트 설정 (옵션)
+# 2단계: Production Stage
+FROM node:22-slim
+
+WORKDIR /app
+
+# build한 결과만 복사 (node_modules는 prod용만)
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/dist ./dist
+
+RUN yarn install --production
+
+ENV NODE_ENV=production
 ENV PORT=3000
 
-# 앱 실행
-CMD ["yarn", "start"]
+CMD ["node", "dist/main.js"]
