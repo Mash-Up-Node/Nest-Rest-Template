@@ -49,3 +49,45 @@ Migration 파일은 기본적으로 `src/migrations`, `dist/migrations`에 생�
   ```
   yarn migration:revert
   ```
+
+# Nest-Rest-Template
+
+## 👫 팀원 소개
+<markdown-accessiblity-table data-catalyst=""><table>
+  <tbody>
+    <tr>
+    <td align="center" width="130px">김바다</td>
+    <td align="center" width="130px">윤준호</td>
+    <td align="center" width="130px">이미나</td>
+    <td align="center" width="130px">최재영</td>
+  </tr>
+    <tr height="130px">
+    <td align="center" width="130px">
+      <a href="https://github.com/sally0226"><img src="https://avatars.githubusercontent.com/u/43634786?v=4" style="max-width: 100%;"></a>
+    </td>
+    <td align="center" width="130px">
+      <a href="https://github.com/J-Hoplin"><img src="https://avatars.githubusercontent.com/u/45956041?v=4" style="max-width: 100%;"></a>
+    </td>
+    <td align="center" width="130px">
+      <a href="https://github.com/chsjen492"><img src="https://avatars.githubusercontent.com/u/109032458?v=4" style="max-width: 100%;"></a>
+    </td>
+    <td align="center" width="130px">
+      <a href="https://github.com/Choi-JY1107"><img src="https://avatars.githubusercontent.com/u/52996979?v=4" style="max-width: 100%;"></a>
+    </td>
+  </tr>
+  <tr height="50px">
+    <td align="center" width="130px">
+      <a href="https://github.com/sally0226">sally0226</a>
+    </td>
+    <td align="center" width="130px">
+      <a href="https://github.com/J-Hoplin">J-Hoplin</a>
+    </td>
+    <td align="center" width="130px">
+      <a href="https://github.com/chsjen492">chsjen492</a>
+    </td>
+    <td align="center" width="130px">
+      <a href="https://github.com/Choi-JY1107">Choi-JY1107</a>
+    </td>
+  </tr>
+</tbody></table></markdown-accessiblity-table>
+<br>
