@@ -7,6 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
+    "build:bundle": "tsup src/main.ts --out-dir dist --format esm,cjs --target node22 --minify",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "cross-env APP_MODE=prod && nest start",
     "start:dev": "cross-env APP_MODE=dev && nest start --watch",
@@ -69,6 +70,7 @@
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
+    "tsup": "^8.4.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0"
   },
