@@ -29,7 +29,11 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @Column({ default: UserRole.USER })
+  @Column({
+    type: 'enum',
+    enum: UserRole,
+    default: UserRole.USER,
+  })
   role: UserRole;
 
   @CreateDateColumn()

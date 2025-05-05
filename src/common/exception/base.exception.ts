@@ -1,11 +1,7 @@
-import { HttpException, HttpStatus } from '@nestjs/common'
+import { HttpException, HttpStatus } from '@nestjs/common';
 
 export class BaseException extends HttpException {
-  constructor(
-    status: number,
-    message: string,
-    errorCode?: string,
-  ) {
+  constructor(status: number, message: string, errorCode?: string) {
     super(
       {
         statusCode: status,
@@ -14,8 +10,8 @@ export class BaseException extends HttpException {
         timestamp: new Date().toISOString(),
       },
       status,
-    )
+    );
 
-    Error.captureStackTrace(this, new.target)
+    Error.captureStackTrace(this, new.target);
   }
 }

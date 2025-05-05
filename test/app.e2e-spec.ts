@@ -24,9 +24,9 @@ describe('AppController (e2e)', () => {
   });
 
   it('/test-error (GET)', async () => {
-    const response = await request(app.getHttpServer()).get('/test-error')
+    const response = await request(app.getHttpServer()).get('/test-error');
 
-    expect(response.status).toBe(418)
+    expect(response.status).toBe(418);
     expect(response.body).toEqual(
       expect.objectContaining({
         statusCode: 418,
@@ -34,7 +34,7 @@ describe('AppController (e2e)', () => {
         message: '테스트용 예외입니다. 노드팀 화이팅!',
         timestamp: expect.any(String),
       }),
-    )
+    );
   });
 
   afterEach(async () => {
