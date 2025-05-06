@@ -1,16 +1,20 @@
-import { User } from '@/users/entities/user.entity';
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
-import { Reflector } from '@nestjs/core';
 import { ROLES_PUBLIC } from '@/common/decorator/public.decorator';
 import { ROLES_KEY } from '@/common/decorator/roles.decorator';
 import {
   ForbiddenException,
   UnauthorizedException,
 } from '@/common/exception/auth.exception';
+import { User } from '@/users/entities/user.entity';
+import { ExecutionContext, Injectable } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
+import { AuthGuard } from '@nestjs/passport';
+import { JWT_STRATEGY } from './constant';
 
 @Injectable()
-export class GlobalAuthGuard implements CanActivate {
-  constructor(private reflector: Reflector) {}
+export class GlobalAuthGuard extends AuthGuard(JWT_STRATEGY) {
+  constructor(private reflector: Reflector) {
+    super();
+  }
 
   canActivate(context: ExecutionContext): boolean {
     const requiredRoles = this.reflector.getAllAndOverride<string[]>(

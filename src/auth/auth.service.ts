@@ -1,11 +1,11 @@
+import { JwtPayload } from '@/common';
+import { UsersRepository } from '@/users/users.repository';
 import {
   ForbiddenException,
   Injectable,
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { UsersRepository } from '@/users/users.repository';
-import { JwtPayload } from '@/common';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
@@ -30,7 +30,6 @@ export class AuthService {
       // 재영이 PR 머지된 이후 BaseExecption으로 변경
       throw new NotFoundException('User not found');
     }
-
     const isPasswordValid = await this.userRepository.validatePassword(
       password,
       user.password,
